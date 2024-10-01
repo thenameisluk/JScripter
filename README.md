@@ -1,12 +1,18 @@
+## Disclaimer
+
+look i just wanted something like https://github.com/david-swift/Scripter/
+
+but for javascript so i forked it and patched it
+
+for the logo and all code credits to them
+
 <p align="center">
   <img width="256" alt="Scripter Icon" src="data/icons/io.github.david_swift.Scripter.svg">
-  <h1 align="center">Scripter</h1>
+  <h1 align="center">JScripter</h1>
 </p>
 
-A very simple, native GNOME app for writing and executing simple Python scripts.
-It can be used as an advanced calculator or as an editor for testing simple scripts in Python.
-
-![Screenshot](data/icons/Screenshot.png)
+A very simple, native GNOME app for writing and executing simple JavaSript scripts.
+It can be used as an advanced calculator or as an editor for testing simple scripts in JavaScript.
 
 ## Table of Contents
 
@@ -23,7 +29,7 @@ It can be used as an advanced calculator or as an editor for testing simple scri
 
 ## Usage
 
-Write a simple Python script. Run using the `Run` button or `Ctrl+Return`.
+Write a simple Javascript script. Run using the `Run` button or `Ctrl+Return`.
 Print results using the `print` function so that they appear in the app's UI.
 
 Look up and copy previous outputs in the sidebar. Open it using the button in the toolbar.
