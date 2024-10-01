@@ -1,0 +1,6 @@
+Package: JScripter
+Version: VERSION
+Maintainer: luk
+Architecture: ARCH
+Depends: libgtksourceview-5-0, libadwaita-1-0
+Description: javascript editor

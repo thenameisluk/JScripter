@@ -1,0 +1,34 @@
+#!/bin/bash
+
+VERSION=0.1.0
+RELEASENUMBER=1
+
+rm deb -rf
+
+set -e
+
+swift build -c release --static-swift-stdlib
+
+mkdir deb
+
+mkdir -p deb/DEBIAN
+
+cp control deb/DEBIAN/control -v
+sed -i "s/VERSION/${VERSION}/g" deb/DEBIAN/control
+sed -i "s/ARCH/$(dpkg --print-architecture)/g" deb/DEBIAN/control
+
+mkdir -p deb/bin/
+cp .build/release/Scripter deb/bin/JScripter -v
+chmod 755 deb/bin/JScripter
+mkdir -p deb/share/metainfo/
+cp data/io.github.david_swift.Scripter.metainfo.xml deb/share/metainfo/io.github.david_swift.Scripter.metainfo.xml -v
+mkdir -p deb/share/applications/
+cp data/io.github.david_swift.Scripter.desktop deb/share/applications/io.github.david_swift.Scripter.desktop -v
+mkdir -p deb/share/icons/hicolor/scalable/apps/
+cp data/icons/io.github.david_swift.Scripter.svg deb/share/icons/hicolor/scalable/apps/io.github.david_swift.Scripter.svg -v
+mkdir -p deb/share/icons/hicolor/symbolic/apps/
+cp data/icons/io.github.david_swift.Scripter-symbolic.svg deb/share/icons/hicolor/symbolic/apps/io.github.david_swift.Scripter-symbolic.svg -v
+
+dpkg-deb --build deb
+
+mv deb.deb "JScripter-${VERSION}-${RELEASENUMBER}_$(dpkg --print-architecture).deb" -v

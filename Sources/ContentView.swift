@@ -57,7 +57,7 @@ struct ContentView: WindowView {
                 CodeEditor(text: $text)
                     .innerPadding()
                     .lineNumbers()
-                    .language(.python)
+                    .language(.js)
             }
             .vexpand()
             .topToolbar {
@@ -84,8 +84,8 @@ struct ContentView: WindowView {
 
     func run() {
         let process = Process()
-        process.executableURL = .init(fileURLWithPath: "/usr/bin/python3")
-        process.arguments = ["-c", text]
+        process.executableURL = .init(fileURLWithPath: "/usr/bin/node")
+        process.arguments = ["-e", text]
 
         let pipe = Pipe()
         process.standardOutput = pipe

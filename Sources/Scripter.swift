@@ -19,7 +19,7 @@ struct Scripter: App {
         }
         .quitShortcut()
         .overlay {
-            FileDialog(importer: "importer", extensions: ["py"]) { url in
+            FileDialog(importer: "importer", extensions: ["js"]) { url in
                 if let content = try? String(contentsOf: url) {
                     importContent = content
                     app.addWindow("main")
@@ -28,7 +28,7 @@ struct Scripter: App {
             } onClose: {
                 importContent = ""
             }
-            FileDialog(exporter: "exporter", initialName: "Script.py") { url in
+            FileDialog(exporter: "exporter", initialName: "Script.js") { url in
                 try? exportContent.write(toFile: url.path, atomically: false, encoding: .utf8)
             } onClose: {
                 exportContent = ""
