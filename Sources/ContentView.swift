@@ -96,17 +96,33 @@ struct ContentView: WindowView {
         try? process.run()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        if let output = String(data: data, encoding: .utf8) {
-            let output = output.components(separatedBy: "\n").filter { !$0.isEmpty }
-            for element in output {
-                self.output.insert(element, at: 0)
-                selectedText = element
+        if var output = String(data: data, encoding: .utf8) {
+            //maybe add toggle between two
+            //every line in diffrent block
+            // let output = output.components(separatedBy: "\n").filter { !$0.isEmpty }
+            // for element in output {
+            //     self.output.insert(element, at: 0)
+            //     selectedText = element
+            //     if !sidebarVisible {
+            //         outputSignal.signal()
+            //     }
+            // }
+            
+            //all output in one block
+            if output.hasSuffix("\n") {
+                    output.removeLast()
+            }
+
+            if(!output.isEmpty){
+                self.output.insert(output, at: 0)
+                selectedText = output
+
                 if !sidebarVisible {
                     outputSignal.signal()
                 }
             }
         }
-
+        
         let errorData = errors.fileHandleForReading.readDataToEndOfFile()
         if let errorOutput = String(data: errorData, encoding: .utf8), !errorOutput.isEmpty {
             self.errorOutput = errorOutput

@@ -50,12 +50,12 @@ struct ToolbarView: View {
         .tooltip("Main Menu")
         .aboutDialog(
             visible: $aboutDialog,
-            app: "Scripter",
-            developer: "david-swift",
+            app: "JScripter",
+            developer: "luk",
             version: "0.1.2",
             icon: .custom(name: "io.github.david_swift.Scripter"),
-            website: .init(string: "https://github.com/david-swift/Scripter"),
-            issues: .init(string: "https://github.com/david-swift/Scripter/issues")
+            website: .init(string: "https://github.com/thenameisluk/JScripter"),
+            issues: .init(string: "https://github.com/thenameisluk/JScripter/issues")
         )
     }
 
@@ -79,6 +79,7 @@ struct ToolbarView: View {
                 export()
                 app.addWindow("exporter", parent: window)
             }
+            
             .keyboardShortcut("e".ctrl())
         }
     }
