@@ -20,14 +20,14 @@ sed -i "s/ARCH/$(dpkg --print-architecture)/g" deb/DEBIAN/control
 mkdir -p deb/bin/
 cp .build/release/Scripter deb/bin/JScripter -v
 chmod 755 deb/bin/JScripter
-mkdir -p deb/share/metainfo/
-cp data/io.github.david_swift.Scripter.metainfo.xml deb/share/metainfo/io.github.david_swift.Scripter.metainfo.xml -v
-mkdir -p deb/share/applications/
-cp data/io.github.david_swift.Scripter.desktop deb/share/applications/io.github.david_swift.Scripter.desktop -v
-mkdir -p deb/share/icons/hicolor/scalable/apps/
-cp data/icons/io.github.david_swift.Scripter.svg deb/share/icons/hicolor/scalable/apps/io.github.david_swift.Scripter.svg -v
-mkdir -p deb/share/icons/hicolor/symbolic/apps/
-cp data/icons/io.github.david_swift.Scripter-symbolic.svg deb/share/icons/hicolor/symbolic/apps/io.github.david_swift.Scripter-symbolic.svg -v
+#mkdir -p deb/share/metainfo/
+#cp data/io.github.david_swift.Scripter.metainfo.xml deb/share/metainfo/io.github.david_swift.Scripter.metainfo.xml -v
+mkdir -p deb/usr/share/applications/
+cp data/io.github.david_swift.Scripter.desktop deb/usr/share/applications/io.github.david_swift.Scripter.desktop -v
+mkdir -p deb/usr/share/icons/hicolor/scalable/apps/
+cp data/icons/io.github.david_swift.Scripter.svg deb/usr/share/icons/hicolor/scalable/apps/io.github.david_swift.Scripter.svg -v
+mkdir -p deb/usr/share/icons/hicolor/symbolic/apps/
+cp data/icons/io.github.david_swift.Scripter-symbolic.svg deb/usr/share/icons/hicolor/symbolic/apps/io.github.david_swift.Scripter-symbolic.svg -v
 
 dpkg-deb --build deb
 
